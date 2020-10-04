@@ -27912,7 +27912,7 @@ F.Vz.prototype={
 $0:function(){var s=0,r=P.ai(t.P)
 var $async$$0=P.ab(function(a,b){if(a===1)return P.af(b,r)
 while(true)switch(s){case 0:s=2
-return P.an(T.Y8("https://github.com/bernaferrari/randomcolorscheme"),$async$$0)
+return P.an(T.Y8("https://github.com/bernaferrari/RandomColorScheme"),$async$$0)
 case 2:return P.ag(null,r)}})
 return P.ah($async$$0,r)},
 $C:"$0",
