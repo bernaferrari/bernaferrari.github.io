@@ -32359,11 +32359,11 @@ return s==null?H.i(H.u("currentSegment")):s},
 aV:function(){var s,r=this,q=r.c
 q.toString
 q=S.R1(q)
-q.toString
-s=r.c
+if(q==null)q=null
+else{s=r.c
 s.toString
 s=q.G9(s,C.rX)
-r.d=s==null?0:s
+q=s}r.d=q==null?0:q
 r.br()},
 J:function(a,b){var s,r,q,p=this,o=null,n=K.a2(b),m=B.a7a(K.a2(b).O.f),l=H.a([K.a2(b).O.a,K.a2(b).O.c,K.a2(b).O.e,K.a2(b).O.f],t.bk),k=K.a2(b).O.Q
 k=P.ab(51,k.gl(k)>>>16&255,k.gl(k)>>>8&255,k.gl(k)&255)
@@ -32394,10 +32394,9 @@ q.d=this.b
 s=q.c
 s.toString
 s=S.R1(s)
-s.toString
-r=q.c
+if(s!=null){r=q.c
 r.toString
-s.GR(r,q.gvD(),C.rX)},
+s.GR(r,q.gvD(),C.rX)}},
 $S:0}
 F.Ao.prototype={
 J:function(a,b){var s=null
@@ -32500,9 +32499,10 @@ $1:function(a){var s=K.a2(a).O.cx===C.L?new P.x(4278716424):C.j
 return new E.no(C.Dn,new V.av(16,16,0,0),H.a([new T.pL(null)],t.p),new V.av(8,8,8,8),s,null)},
 $S:123}
 U.vG.prototype={
-J:function(a,b){var s=null,r=this.d,q=K.is(8),p=L.hn(C.wQ,r,16),o=T.dt(s,s,8),n=this.c
-if(b.P(t.w).f.a.a<400)n=n[0]
-return M.kz(C.P,!0,new T.bN(C.b6,T.ne(H.a([p,o,L.d6(n,C.b2,K.a2(b).aq.z.eA(r),s)],t.p),C.bi,C.b8,C.b9),s),C.w,C.cD,0,s,s,new X.c8(q,new Y.cc(r,1,C.K)),s,C.ch)},
+J:function(a,b){var s,r=null,q=this.d,p=K.is(8),o=L.hn(C.wQ,q,16),n=T.dt(r,r,8),m=this.c
+if(b.P(t.w).f.a.a<400)m=m[0]
+s=K.a2(b).aq.z
+return M.kz(C.P,!0,new T.bN(C.b6,T.ne(H.a([o,n,L.d6(m,C.b2,s==null?r:s.eA(q),r)],t.p),C.bi,C.b8,C.b9),r),C.w,C.cD,0,r,r,new X.c8(p,new Y.cc(q,1,C.K)),r,C.ch)},
 dv:function(a){return this.c.$0()}}
 X.cR.prototype={
 i:function(a){return this.b}}
