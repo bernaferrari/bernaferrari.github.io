@@ -3,16 +3,16 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "version.json": "7ad234b3ed745e342d7959923905f369",
-"index.html": "910472e068cc0e3792c9600e54e56be1",
-"/": "910472e068cc0e3792c9600e54e56be1",
-"main.dart.js": "9d746a6d27f65b6a54c35ec814d2a854",
-"favicon.png": "915e9b04bb1c69d1af1329b94cd11503",
-"icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
-"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"manifest.json": "00e0b69b49487ce4f9ff0c5fac8fda49",
-"assets/AssetManifest.json": "99d888dea617df56c80c2e50a4f605e1",
-"assets/NOTICES": "e224a9eb4dd525fbd0aa9ac27d6c9161",
+  "version.json": "54699e0e533bc3d003add1e85b981e82",
+"index.html": "0b978cf0ec8c26fcc069dba0b2858b5b",
+"/": "0b978cf0ec8c26fcc069dba0b2858b5b",
+"main.dart.js": "bc315d08cc6bd0a7f39e02c716c40379",
+"favicon.png": "175046dbbc6105516417dd69d11eaafd",
+"icons/Icon-192.png": "4d36d7689232426b330af9e35ef3593a",
+"icons/Icon-512.png": "160a754a24ab6cf191ae0a15caf840e9",
+"manifest.json": "143319075468df4941e65fefb8ac745a",
+"assets/AssetManifest.json": "76a0f05569a31c54d7ef3f3b6c39c107",
+"assets/NOTICES": "bfd29248611edd37be6bb646d5c50d93",
 "assets/FontManifest.json": "1f5889ce2ee1641870fe1f6ab4c0bf58",
 "assets/packages/flutter_feather_icons/fonts/feather.ttf": "c96dc22ca29a082af83cce866d35cebc",
 "assets/fonts/B612Mono-Bold.ttf": "9e3f5ddc83c382b32b1c8c95c0dc4761",
@@ -36,7 +36,7 @@ self.addEventListener("install", (event) => {
   return event.waitUntil(
     caches.open(TEMP).then((cache) => {
       return cache.addAll(
-        CORE.map((value) => new Request(value + '?revision=' + RESOURCES[value], {'cache': 'reload'})));
+        CORE.map((value) => new Request(value, {'cache': 'reload'})));
     })
   );
 });
@@ -162,7 +162,7 @@ async function downloadOffline() {
     }
     currentContent[key] = true;
   }
-  for (var resourceKey in Object.keys(RESOURCES)) {
+  for (var resourceKey of Object.keys(RESOURCES)) {
     if (!currentContent[resourceKey]) {
       resources.push(resourceKey);
     }
