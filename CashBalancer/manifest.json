@@ -1,0 +1,23 @@
+{
+    "name": "Cash Balancer",
+    "short_name": "Cash Balancer",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#13B9FF",
+    "theme_color": "#5ae492",
+    "description": "Balance cash between multiple wallets.",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
