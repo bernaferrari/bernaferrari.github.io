@@ -3,28 +3,33 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "version.json": "8e376a83fa1d0945af4de2b8609aed3a",
-"index.html": "83b742f4a93f6e5d67bb298b8caa73ba",
-"/": "83b742f4a93f6e5d67bb298b8caa73ba",
-"main.dart.js": "defcb4e9a5c8365bdd21d0e1c5dbf817",
+  "version.json": "4dd62593095e97ef0cf2a0ae5bb15876",
+"index.html": "ee23daadb24148929491a8f4b08a31c7",
+"/": "ee23daadb24148929491a8f4b08a31c7",
+"main.dart.js": "07d0b96a4c80a67cd83785f2eb7160d4",
+"flutter.js": "a85fcf6324d3c4d3ae3be1ae4931e9c5",
 "favicon.png": "4f8b78d1a716f33d5023232a4fb3c8d5",
 "icons/Icon-192.png": "272e7c132dcd83a9114c072f859307c9",
+"icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
+"icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
 "icons/Icon-512.png": "168a341e07c4d39298c69169bd09fa48",
 "manifest.json": "64ae09051659586cd4809ea5b04cbb9a",
 "assets/AssetManifest.json": "d42c612ee655100a095de4a54a5523e1",
-"assets/NOTICES": "d83f68b5fc2e92d408e17003b9a2eaef",
+"assets/NOTICES": "0bc4bfdf3f1e6b4d968a88e0716de75b",
 "assets/FontManifest.json": "3f0ebc7cf4269ee78431670b41b76ef0",
 "assets/packages/flutter_feather_icons/fonts/feather.ttf": "c96dc22ca29a082af83cce866d35cebc",
-"assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1"
+"assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080",
+"canvaskit/canvaskit.js": "97937cb4c2c2073c968525a3e08c86a3",
+"canvaskit/profiling/canvaskit.js": "c21852696bc1cc82e8894d851c01921a",
+"canvaskit/profiling/canvaskit.wasm": "371bc4e204443b0d5e774d64a046eb99",
+"canvaskit/canvaskit.wasm": "3de12d898ec208a5f31362cc00f09b9e"
 };
 
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = [
-  "/",
-"main.dart.js",
+  "main.dart.js",
 "index.html",
-"assets/NOTICES",
 "assets/AssetManifest.json",
 "assets/FontManifest.json"];
 // During install, the TEMP cache is populated with the application shell files.
@@ -123,9 +128,11 @@ self.addEventListener("fetch", (event) => {
     .then((cache) =>  {
       return cache.match(event.request).then((response) => {
         // Either respond with the cached resource, or perform a fetch and
-        // lazily populate the cache.
+        // lazily populate the cache only if the resource was successfully fetched.
         return response || fetch(event.request).then((response) => {
-          cache.put(event.request, response.clone());
+          if (response && Boolean(response.ok)) {
+            cache.put(event.request, response.clone());
+          }
           return response;
         });
       })

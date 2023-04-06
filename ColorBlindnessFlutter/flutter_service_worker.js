@@ -3,27 +3,25 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "version.json": "809bbfb92724ef05bce9fdcf5a8f638a",
-"main.dart.js": "35a9ce66855b5a75bf2e1ecfc5dfc43a",
-"index.html": "4a439aa481cd90a909ee6af3744e7425",
-"/": "4a439aa481cd90a909ee6af3744e7425",
-"assets/AssetManifest.json": "99914b932bd37a50b983c5e7c90ae93b",
-"assets/NOTICES": "b1cd10c5e220af10013b646b7c2bfe8b",
-"assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
-"assets/FontManifest.json": "7b2a36307916a9721811788013e65289",
-"icons/Icon-512.png": "4140070c97fb580c3b7a68405acc2ca3",
+  "version.json": "bb737e22472d30c1d7ac600e0a414eae",
+"index.html": "4de54d9dc3dfd6a5f49730983791d2af",
+"/": "4de54d9dc3dfd6a5f49730983791d2af",
+"main.dart.js": "fbbe4ae530be0efec79f995e42b6d760",
+"favicon.png": "bf92bbc4959ba1728d725213516d6d62",
 "icons/Icon-192.png": "7dbca02ebebeea503ab26cf0accd7be4",
+"icons/Icon-512.png": "4140070c97fb580c3b7a68405acc2ca3",
 "manifest.json": "fad07722b289f5d9e2bd5fca96d24be2",
-"favicon.png": "bf92bbc4959ba1728d725213516d6d62"
+"assets/AssetManifest.json": "99914b932bd37a50b983c5e7c90ae93b",
+"assets/NOTICES": "ec4f21f8b0221d006157df285f495738",
+"assets/FontManifest.json": "7b2a36307916a9721811788013e65289",
+"assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080"
 };
 
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = [
-  "/",
-"main.dart.js",
+  "main.dart.js",
 "index.html",
-"assets/NOTICES",
 "assets/AssetManifest.json",
 "assets/FontManifest.json"];
 // During install, the TEMP cache is populated with the application shell files.
@@ -122,9 +120,11 @@ self.addEventListener("fetch", (event) => {
     .then((cache) =>  {
       return cache.match(event.request).then((response) => {
         // Either respond with the cached resource, or perform a fetch and
-        // lazily populate the cache.
+        // lazily populate the cache only if the resource was successfully fetched.
         return response || fetch(event.request).then((response) => {
-          cache.put(event.request, response.clone());
+          if (response && Boolean(response.ok)) {
+            cache.put(event.request, response.clone());
+          }
           return response;
         });
       })
