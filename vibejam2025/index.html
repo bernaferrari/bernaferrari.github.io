@@ -86,17 +86,17 @@
         perspective: 1000px; /* Add perspective for 3D effect */
       }
 
-      #hero h1 {
-    text-shadow: 0 0 5px var(--primary-glow), 0 0 10px #6f42c1, 0 0 15px var(--primary);
-    transform: perspective(500px) translateZ(20px);
-}
-
       .hero-content {
-        position: relative;
         z-index: 5;
         animation: fadeIn 1.5s ease;
-        margin: 0 auto;
         max-width: 800px;
+        width: 100%;
+        position: relative; /* Remove absolute positioning */
+        transform: none;    /* Remove the translate offsets */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
       }
 
       @keyframes fadeIn {
@@ -181,7 +181,6 @@
         color: var(--text);
         text-shadow: 0 0 10px var(--tertiary);
         margin-bottom: 30px;
-        animation: fadeInUp 1s ease-out 0.3s both;
         max-width: 800px;
       }
 
@@ -766,12 +765,30 @@
           font-size: 0.8rem;
         }
 
+        #hero {
+          padding-top: 0; /* Remove the top padding that was pushing content down */
+          justify-content: center; /* Keep centered vertically */
+          height: 100vh; /* Ensure full viewport height even on mobile */
+          min-height: 100vh;
+          position: relative;
+        }
+
+        .hero-content {
+          /* Keep the absolute positioning and transform for mobile too */
+          position: relative; /* Remove absolute positioning */
+          transform: none;    /* Remove the translate offsets */
+          width: 90%; /* Slightly narrower on mobile */
+        }
+
         #hero h1 {
-          font-size: 2rem;
+          font-size: 1.8rem;
+          padding: 0;
+          margin-top: 0; /* Remove top margin */
         }
 
         #hero p {
-          font-size: 1.2rem;
+          font-size: 1rem;
+          padding: 0;
         }
 
         .section-header {
@@ -1060,14 +1077,39 @@
           to { transform: translateY(0); opacity: 1; }
         }
 
+        #hero {
+          padding-top: 0; /* Remove the top padding that was pushing content down */
+          justify-content: center; /* Keep centered vertically */
+          height: 100vh; /* Ensure full viewport height even on mobile */
+          min-height: 100vh;
+          position: relative;
+        }
+
+        .hero-content {
+          /* Keep the absolute positioning and transform for mobile too */
+          position: relative; /* Remove absolute positioning */
+          transform: none;    /* Remove the translate offsets */
+          width: 90%; /* Slightly narrower on mobile */
+        }
+
         #hero h1 {
           font-size: 1.8rem;
-          padding: 0 15px;
+          padding: 0;
+          margin-top: 0; /* Remove top margin */
         }
 
         #hero p {
           font-size: 1rem;
-          padding: 0 20px;
+          padding: 0;
+        }
+
+        /* Improve about section padding on mobile */
+        #about {
+          padding: 90px 20px 40px;
+        }
+
+        #about .content {
+          padding: 0 15px;
         }
 
         .grid {
@@ -1094,6 +1136,11 @@
           width: 100%;
           max-width: 300px;
           text-align: center;
+        }
+        
+        /* Improved spacing for sections on mobile */
+        .grid-section {
+          padding: 80px 20px;
         }
       }
 
@@ -1153,7 +1200,8 @@
         <a href="#about" class="btn" aria-label="Learn more about the jam">
           Learn More
         </a>
-      </div>
+    </div>
+
 
       <!-- Create 3D tunnel effect with multiple rings -->
       <div class="tunnel-container"></div>
