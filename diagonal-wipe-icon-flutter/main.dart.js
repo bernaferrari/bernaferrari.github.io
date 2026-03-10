@@ -40124,7 +40124,7 @@ A.adJ.prototype={
 $0(){return this.a.o0("https://x.com/bernaferrari")},
 $S:0}
 A.adK.prototype={
-$0(){return this.a.o0("https://github.com/bernaferrari/diagonal-wipe-icon")},
+$0(){return this.a.o0("https://github.com/bernaferrari/diagonal-wipe-icon-flutter")},
 $S:0}
 A.adL.prototype={
 $1(a){var s=this.a
