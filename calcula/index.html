@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#f8f8ff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#121318" media="(prefers-color-scheme: dark)">
+    <style>
+        html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #f8f8ff; }
+        @media (prefers-color-scheme: dark) { html, body { background: #121318; } }
+        canvas { width: 100%; height: 100%; display: block; }
+        #loading { position: fixed; inset: 0; display: grid; place-items: center; }
+        #loading span { width: 36px; height: 36px; border-radius: 10px; background: #6366f1; animation: pulse 0.9s ease-in-out infinite alternate; }
+        @keyframes pulse { from { opacity: .35; transform: scale(.9); } to { opacity: 1; transform: scale(1); } }
+        @media (prefers-reduced-motion: reduce) { #loading span { animation: none; } }
+    </style>
+    <title>Calcula | Browser demo</title>
+    <link rel="canonical" href="https://bernaferrari.github.io/calcula/">
+    <link rel="icon" href="../showcase/calcula/favicon.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="../showcase/calcula/apple-touch-icon.png" sizes="180x180">
+    <meta name="description" content="Flick keys for scientific functions, plot equations, convert units, and reuse answers from your history.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Calcula | Browser demo">
+    <meta name="twitter:description" content="Flick keys for scientific functions, plot equations, convert units, and reuse answers from your history.">
+    <meta name="twitter:image" content="https://bernaferrari.github.io/showcase/calcula/social.jpg">
+    <meta name="twitter:image:alt" content="Calcula showing a graph, unit conversion, scientific keys, and themes">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bernardo Ferrari’s app demos">
+    <meta property="og:title" content="Calcula | Browser demo">
+    <meta property="og:description" content="Flick keys for scientific functions, plot equations, convert units, and reuse answers from your history.">
+    <meta property="og:url" content="https://bernaferrari.github.io/calcula/">
+    <meta property="og:image" content="https://bernaferrari.github.io/showcase/calcula/social.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Calcula showing a graph, unit conversion, scientific keys, and themes">
+</head>
+<body>
+<noscript>Enable JavaScript to run this demo.</noscript>
+<div id="loading" role="status" aria-label="Loading"><span></span></div>
+<script src="calculator.js"></script>
+</body>
+</html>
