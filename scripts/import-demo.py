@@ -69,13 +69,15 @@ def metadata(source, slug):
     return source.replace("<body>", '<body>\n<noscript>Enable JavaScript to run this demo.</noscript>', 1)
 
 
-
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("demo", choices=DEMOS)
     parser.add_argument("distribution", type=Path)
     parser.add_argument("--license", type=Path)
+    parser.add_argument("--source-commit", help="Full Git SHA used to build the distribution")
     args = parser.parse_args()
+    if args.source_commit and not re.fullmatch(r"[0-9a-f]{40}", args.source_commit):
+        parser.error("--source-commit must be a full Git SHA.")
     entry, sqlite = DEMOS[args.demo]
     distribution = args.distribution.resolve()
     destination = SITE / args.demo
@@ -124,10 +126,19 @@ def main():
         if sqlite:
             shutil.copy2(SITE / "showcase/isolation-worker.js", staging)
         if license_path:
-            shutil.copy2(license_path, staging / "LICENSE.txt")
+            (staging / "LICENSE.txt").write_bytes(license_path.read_bytes().rstrip() + b"\n")
+        if args.source_commit:
+            (staging / "source-commit.txt").write_text(args.source_commit + "\n", encoding="ascii")
+
+        previous = Path(temp) / "previous"
         if destination.exists():
-            shutil.rmtree(destination)
-        staging.rename(destination)
+            destination.rename(previous)
+        try:
+            staging.rename(destination)
+        except OSError:
+            if previous.exists():
+                previous.rename(destination)
+            raise
 
 
 if __name__ == "__main__":

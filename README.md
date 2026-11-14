@@ -81,24 +81,18 @@ Enter your balances and target percentages to see how much you would need to mov
 - [Emoji Slider](https://bernaferrari.github.io/EmojiSlider/)
 - [Vibe Jam 2025](https://bernaferrari.github.io/vibejam2025/)
 
-## Update a demo
+## Refresh the Kotlin demos
 
-Build the production distribution in the app's source repository with `./gradlew :<module>:wasmJsBrowserDistribution`.
-
-| Demo path | Gradle module |
-| --- | --- |
-| `wordkeep` | `:webApp` |
-| `calcula` | `:webApp` |
-| `wifi-weakspot` | `:webDemo` |
-| `sdkmonitor` | `:webApp` |
-| `quietguard` | `:webApp` |
-| `keepout` | `:shared` |
-
-From this repository, import the resulting directory. Pass the source repository's license file when importing a licensed app for the first time.
+Run the updater from this repository on macOS or Linux. Builds use each app's Gradle wrapper and need a JDK and Android SDK. Set `ANDROID_HOME` to your SDK path.
 
 ```sh
-python3 scripts/import-demo.py wordkeep /path/to/wordkeep/webApp/build/dist/wasmJs/productionExecutable --license /path/to/wordkeep/LICENSE
-python3 -m http.server 8000
+python3 scripts/update-demos.py --dry-run
+python3 scripts/update-demos.py
+python3 scripts/update-demos.py wordkeep calcula
 ```
 
-Open the gallery at `http://localhost:8000/`, launch the updated demo, and check its main interaction before committing. GitHub Pages publishes from the root of `main`. Wordkeep, QuietGuard, and SDK Monitor use a service worker scoped to each demo to enable the browser isolation needed by SQLite.
+The updater compares each app's GitHub `main` branch with the full SHA in its deployed `source-commit.txt`. It builds changed commits in temporary clones and imports each successful build with its SHA. If a build fails, the previous demo remains available and the updater exits with an error after checking the other apps.
+
+Preview the changes with `python3 -m http.server 8000` and open `http://localhost:8000/`. Commit the updated demo directories and push to `main` to publish them on GitHub Pages.
+
+Wordkeep, QuietGuard, and SDK Monitor use a service worker scoped to each demo to enable the browser isolation needed by SQLite.
