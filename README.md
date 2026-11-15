@@ -1,70 +1,79 @@
-# App demos by Bernardo Ferrari
+<a href="https://bernaferrari.github.io/"><img src="showcase/readme-banner.webp" width="100%" alt="App demos by Bernardo Ferrari"></a>
 
-[<img src="showcase/social.jpg" width="720" alt="The six Kotlin apps in the browser showcase">](https://bernaferrari.github.io/)
-
-[Browse the live gallery](https://bernaferrari.github.io/) · [Kotlin Reforge](https://kotlin-reforge.vercel.app/)
-
-These apps run in the browser using Kotlin/Wasm and Compose Multiplatform. Wordkeep and Calcula are usable browser apps. The four Android utilities use sample data so you can explore their screens without device permissions.
+<p align="center">
+  <a href="https://bernaferrari.github.io/"><strong>Browse the live gallery ↗</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://kotlin-reforge.vercel.app/">About Kotlin Reforge</a>
+</p>
 
 ## Kotlin apps
 
-### Wordkeep
+Write a note or work through a calculation in the browser. Both apps run on Kotlin/Wasm and Compose Multiplatform.
 
-[<img src="showcase/wordkeep/preview.webp" width="460" alt="Wordkeep notebook on a tablet and Markdown editor on a phone">](https://bernaferrari.github.io/wordkeep/)
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://bernaferrari.github.io/wordkeep/"><img src="showcase/wordkeep/preview.webp" width="100%" alt="Wordkeep notebook on a tablet and Markdown editor on a phone"></a>
+      <h3>Wordkeep</h3>
+      <p>Write and preview Markdown. Keep notes and checklists in one notebook.</p>
+      <p><a href="https://bernaferrari.github.io/wordkeep/"><strong>Try Wordkeep ↗</strong></a> · <a href="https://github.com/bernaferrari/wordkeep">Source</a></p>
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://bernaferrari.github.io/calcula/"><img src="showcase/calcula/preview.webp" width="100%" alt="Calcula showing a graph, unit conversion, scientific keys, and themes"></a>
+      <h3>Calcula</h3>
+      <p>Flick a key for sine, plot an equation, or convert units.</p>
+      <p><a href="https://bernaferrari.github.io/calcula/"><strong>Try Calcula ↗</strong></a> · <a href="https://github.com/bernaferrari/calcula">Source</a></p>
+    </td>
+  </tr>
+</table>
 
-Create a note and switch to the Markdown preview.
+### Android utilities you can try in the browser
 
-[Open Wordkeep](https://bernaferrari.github.io/wordkeep/) · [Source code](https://github.com/bernaferrari/wordkeep)
+These four demos use sample data so you can explore Android tools without device permissions.
 
-### Calcula
-
-[<img src="showcase/calcula/preview.webp" width="460" alt="Calcula showing a graph, unit conversion, scientific keys, and themes">](https://bernaferrari.github.io/calcula/)
-
-Flick up on 7 for sine, or open the unit converter.
-
-[Open Calcula](https://bernaferrari.github.io/calcula/) · [Source code](https://github.com/bernaferrari/calcula)
-
-### WiFi Weakspot
-
-[<img src="showcase/wifi-weakspot/preview.webp" width="460" alt="WiFi Weakspot channel graphs across 2.4, 5, and 6 GHz">](https://bernaferrari.github.io/wifi-weakspot/)
-
-Choose Allow access to enter the simulation, then open Networks and switch between the 2.4, 5, and 6 GHz channel views. The browser uses sample data.
-
-[Open WiFi Weakspot](https://bernaferrari.github.io/wifi-weakspot/) · [Source code](https://github.com/bernaferrari/wifi-weakspot)
-
-### SDK Monitor
-
-[<img src="showcase/sdkmonitor/preview.webp" width="460" alt="SDK Monitor analytics, app list, and version details">](https://bernaferrari.github.io/sdkmonitor/)
-
-Open an app to see its target SDK and version history. The browser uses sample data.
-
-[Open SDK Monitor](https://bernaferrari.github.io/sdkmonitor/) · [Source code](https://github.com/bernaferrari/SDKMonitor)
-
-### QuietGuard
-
-[<img src="showcase/quietguard/preview.webp" width="460" alt="QuietGuard displaying per-app firewall controls">](https://bernaferrari.github.io/quietguard/)
-
-Toggle Wi-Fi access for a sample app and look through its rules. The browser uses sample data.
-
-[Open QuietGuard](https://bernaferrari.github.io/quietguard/) · [Source code](https://github.com/bernaferrari/QuietGuard)
-
-### Keepout
-
-[<img src="showcase/keepout/preview.webp" width="460" alt="Keepout showing traffic statistics, protection status, and settings">](https://bernaferrari.github.io/keepout/)
-
-Open Activity, then Insights, to see which apps and domains generated sample traffic. The browser uses sample data.
-
-[Open Keepout](https://bernaferrari.github.io/keepout/) · [Source code](https://github.com/bernaferrari/keepout)
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://bernaferrari.github.io/wifi-weakspot/"><img src="showcase/wifi-weakspot/preview.webp" width="100%" alt="WiFi Weakspot channel graphs across 2.4, 5, and 6 GHz"></a>
+      <h3>WiFi Weakspot</h3>
+      <p>Compare 2.4, 5, and 6 GHz channels and explore a room-by-room signal map.</p>
+      <p><a href="https://bernaferrari.github.io/wifi-weakspot/"><strong>Try WiFi Weakspot ↗</strong></a> · <a href="https://github.com/bernaferrari/wifi-weakspot">Source</a></p>
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://bernaferrari.github.io/sdkmonitor/"><img src="showcase/sdkmonitor/preview.webp" width="100%" alt="SDK Monitor analytics, app list, and version details"></a>
+      <h3>SDK Monitor</h3>
+      <p>Open an app to see its target SDK and how it changed across versions.</p>
+      <p><a href="https://bernaferrari.github.io/sdkmonitor/"><strong>Try SDK Monitor ↗</strong></a> · <a href="https://github.com/bernaferrari/SDKMonitor">Source</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://bernaferrari.github.io/quietguard/"><img src="showcase/quietguard/preview.webp" width="100%" alt="QuietGuard displaying per-app firewall controls"></a>
+      <h3>QuietGuard</h3>
+      <p>Toggle Wi-Fi or mobile data access for an app and inspect its firewall rules.</p>
+      <p><a href="https://bernaferrari.github.io/quietguard/"><strong>Try QuietGuard ↗</strong></a> · <a href="https://github.com/bernaferrari/QuietGuard">Source</a></p>
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://bernaferrari.github.io/keepout/"><img src="showcase/keepout/preview.webp" width="100%" alt="Keepout showing traffic statistics, protection status, and settings"></a>
+      <h3>Keepout</h3>
+      <p>Open Activity → Insights to see which apps and domains generated traffic.</p>
+      <p><a href="https://bernaferrari.github.io/keepout/"><strong>Try Keepout ↗</strong></a> · <a href="https://github.com/bernaferrari/keepout">Source</a></p>
+    </td>
+  </tr>
+</table>
 
 ## Flutter apps
 
-### Cash Balancer
-
-[<img src="showcase/cash-balancer/preview.webp" width="460" alt="Cash Balancer portfolio showing current and target allocations">](https://bernaferrari.github.io/CashBalancer/)
-
-Enter your balances and target percentages to see how much you would need to move between assets.
-
-[Open Cash Balancer](https://bernaferrari.github.io/CashBalancer/) · [Source code](https://github.com/bernaferrari/CashBalancer)
+<table>
+  <tr>
+    <td width="50%"><a href="https://bernaferrari.github.io/CashBalancer/"><img src="showcase/cash-balancer/preview.webp" width="100%" alt="Cash Balancer showing portfolio weights and target allocations"></a></td>
+    <td width="50%" valign="middle">
+      <h3>Cash Balancer</h3>
+      <p>Enter your balances and target percentages to see how much to move between assets.</p>
+      <p><a href="https://bernaferrari.github.io/CashBalancer/"><strong>Try Cash Balancer ↗</strong></a> · <a href="https://github.com/bernaferrari/CashBalancer">Source</a></p>
+    </td>
+  </tr>
+</table>
 
 ### More Flutter projects
 
@@ -81,7 +90,8 @@ Enter your balances and target percentages to see how much you would need to mov
 - [Emoji Slider](https://bernaferrari.github.io/EmojiSlider/)
 - [Vibe Jam 2025](https://bernaferrari.github.io/vibejam2025/)
 
-## Refresh the Kotlin demos
+<details>
+<summary>Refresh the Kotlin demos</summary>
 
 Run the updater from this repository on macOS or Linux. Builds use each app's Gradle wrapper and need a JDK and Android SDK. Set `ANDROID_HOME` to your SDK path.
 
@@ -96,3 +106,5 @@ The updater compares each app's GitHub `main` branch with the full SHA in its de
 Preview the changes with `python3 -m http.server 8000` and open `http://localhost:8000/`. Commit the updated demo directories and push to `main` to publish them on GitHub Pages.
 
 Wordkeep, QuietGuard, and SDK Monitor use a service worker scoped to each demo to enable the browser isolation needed by SQLite.
+
+</details>
