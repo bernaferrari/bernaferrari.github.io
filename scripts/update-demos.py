@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild Kotlin/Wasm demos whose published source commits have changed."""
+"""Rebuild browser demos whose published source commits have changed."""
 
 import argparse
 import fcntl
@@ -21,7 +21,6 @@ def git_output(*args, cwd=SITE):
 
 def update(app, dry_run):
     slug = app["slug"]
-    module = app["module"]
     url = f"https://github.com/bernaferrari/{app['repo']}.git"
     current = SITE / slug / "source-commit.txt"
     installed = current.read_text(encoding="ascii").strip() if current.is_file() else ""
@@ -46,11 +45,19 @@ def update(app, dry_run):
         if (source / ".gitmodules").is_file():
             subprocess.run(["git", "submodule", "update", "--init", "--recursive"],
                            cwd=source, check=True)
-        subprocess.run(
-            ["./gradlew", f":{module}:wasmJsBrowserDistribution", "--console=plain"],
-            cwd=source, check=True, env={**os.environ, "COREPACK_ENABLE_PROJECT_SPEC": "0"},
-        )
-        distribution = source / module / "build/dist/wasmJs/productionExecutable"
+        if app.get("platform") == "flutter":
+            subprocess.run(
+                ["flutter", "build", "web", "--release", "--base-href", f"/{slug}/"],
+                cwd=source, check=True,
+            )
+            distribution = source / "build/web"
+        else:
+            module = app["module"]
+            subprocess.run(
+                ["./gradlew", f":{module}:wasmJsBrowserDistribution", "--console=plain"],
+                cwd=source, check=True, env={**os.environ, "COREPACK_ENABLE_PROJECT_SPEC": "0"},
+            )
+            distribution = source / module / "build/dist/wasmJs/productionExecutable"
         command = [
             sys.executable, SITE / "scripts/import-demo.py", slug, distribution,
             "--source-commit", revision,
@@ -64,7 +71,7 @@ def update(app, dry_run):
 def main():
     apps = {app["slug"]: app for app in json.loads(APPS_FILE.read_text(encoding="utf-8"))}
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("demos", nargs="*", metavar="demo", help="Demo paths (default: all six)")
+    parser.add_argument("demos", nargs="*", metavar="demo", help="Demo paths (default: all managed demos)")
     parser.add_argument("--dry-run", action="store_true", help="Check revisions without building")
     args = parser.parse_args()
     for slug in args.demos:

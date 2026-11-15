@@ -66,6 +66,14 @@ These four demos use sample data so you can explore Android tools without device
 
 <table>
   <tr>
+    <td width="50%"><a href="https://bernaferrari.github.io/chroma-folio/"><img src="showcase/chroma-folio/preview.webp" width="100%" alt="Chroma Folio showing the OKLCH solid and its lightness and chroma reels"></a></td>
+    <td width="50%" valign="middle">
+      <h3>Chroma Folio</h3>
+      <p>Turn and slice a 3D colour solid, spin colour reels, and build a palette you can export.</p>
+      <p><a href="https://bernaferrari.github.io/chroma-folio/"><strong>Try Chroma Folio ↗</strong></a> · <a href="https://github.com/bernaferrari/chroma-folio">Source</a> · <a href="chroma-folio/source-commit.txt">Deployed SHA</a></p>
+    </td>
+  </tr>
+  <tr>
     <td width="50%"><a href="https://bernaferrari.github.io/CashBalancer/"><img src="showcase/cash-balancer/preview.webp" width="100%" alt="Cash Balancer showing portfolio weights and target allocations"></a></td>
     <td width="50%" valign="middle">
       <h3>Cash Balancer</h3>
@@ -91,14 +99,15 @@ These four demos use sample data so you can explore Android tools without device
 - [Vibe Jam 2025](https://bernaferrari.github.io/vibejam2025/)
 
 <details>
-<summary>Refresh the Kotlin demos</summary>
+<summary>Refresh the browser demos</summary>
 
-Run the updater from this repository on macOS or Linux. Builds use each app's Gradle wrapper and need a JDK and Android SDK. Set `ANDROID_HOME` to your SDK path.
+Run the updater from this repository on macOS or Linux. Kotlin builds need a JDK and Android SDK. Set `ANDROID_HOME` to your SDK path. For Chroma Folio, put Flutter on your PATH.
 
 ```sh
 python3 scripts/update-demos.py --dry-run
 python3 scripts/update-demos.py
 python3 scripts/update-demos.py wordkeep calcula
+python3 scripts/update-demos.py chroma-folio
 ```
 
 The updater compares each app's GitHub `main` branch with the full SHA in its deployed `source-commit.txt`. It builds changed commits in temporary clones and imports each successful build with its SHA. If a build fails, the previous demo remains available and the updater exits with an error after checking the other apps.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Import an already built Compose Web distribution into this Pages site."""
+"""Import an already built web distribution into this Pages site."""
 
 import argparse
 import html
@@ -11,6 +11,7 @@ from tempfile import TemporaryDirectory
 
 SITE = Path(__file__).resolve().parent.parent
 DEMOS = {
+    "chroma-folio": ("flutter_bootstrap.js", False),
     "wordkeep": ("markor.js", True),
     "quietguard": ("netguard.js", True),
     "calcula": ("calculator.js", False),
@@ -20,7 +21,7 @@ DEMOS = {
 }
 
 
-def metadata(source, slug):
+def metadata(source, slug, *, flutter):
     app = next(app for app in json.loads((SITE / "showcase/apps.json").read_text())
                if app["slug"] == slug)
     title = f'{app["name"]} | Browser demo'
@@ -51,19 +52,21 @@ def metadata(source, slug):
         "image:alt": app["alt"],
     }
     tags = [f"<title>{html.escape(title)}</title>",
-            f'<link rel="canonical" href="{canonical}">',
-            f'<link rel="icon" href="{icon}/favicon.png" type="image/png" sizes="32x32">',
-            f'<link rel="apple-touch-icon" href="{icon}/apple-touch-icon.png" sizes="180x180">']
+            f'<link rel="canonical" href="{canonical}">']
+    if not flutter:
+        tags += [f'<link rel="icon" href="{icon}/favicon.png" type="image/png" sizes="32x32">',
+                 f'<link rel="apple-touch-icon" href="{icon}/apple-touch-icon.png" sizes="180x180">']
     tags += [f'<meta name="{key}" content="{html.escape(value)}">' for key, value in fields.items()]
     tags += [f'<meta property="og:{key}" content="{html.escape(value)}">'
              for key, value in open_graph.items()]
     stale_metadata = (
         r"<title>[^<]*</title>"
-        r'|<base\s[^>]*>'
         r'|<meta\s+(?:name="(?:description|twitter:[^"]+)"|property="og:[^"]+")[^>]*>'
-        r'|<link\s+rel="(?:canonical|icon|apple-touch-icon)"[^>]*>'
+        r'|<link\s+rel="canonical"[^>]*>'
         r'|<script type="application/ld\+json">.*?</script>'
     )
+    if not flutter:
+        stale_metadata += r'|<base\s[^>]*>|<link\s+rel="(?:icon|apple-touch-icon)"[^>]*>'
     source = re.sub(r"(?m)^[ \t]*(?:" + stale_metadata + r")[ \t]*\n?", "", source, flags=re.S)
     source = source.replace("</head>", "    " + "\n    ".join(tags) + "\n</head>", 1)
     return source.replace("<body>", '<body>\n<noscript>Enable JavaScript to run this demo.</noscript>', 1)
@@ -87,7 +90,11 @@ def main():
     if not index.is_file() or not (distribution / entry).is_file():
         parser.error(f"Expected index.html and {entry} in {distribution}")
 
-    page = metadata(index.read_text(encoding="utf-8"), args.demo)
+    flutter = entry == "flutter_bootstrap.js"
+    source = index.read_text(encoding="utf-8")
+    if flutter and f'<base href="/{args.demo}/">' not in source:
+        parser.error(f"Build with --base-href /{args.demo}/ before importing.")
+    page = metadata(source, args.demo, flutter=flutter)
     if sqlite:
         script = f'<script src="{entry}"></script>'
         if script not in page or 'id="loading"' not in page:
@@ -106,9 +113,10 @@ def main():
         shutil.copytree(distribution, staging, ignore=shutil.ignore_patterns(
             "*.map", "vercel.json", ".DS_Store", ".nojekyll"
         ))
-        for name in ("favicon.png", "favicon.ico", "favicon.svg", "opengraph-image.png",
-                     "opengraph-image.svg", "social.png"):
-            (staging / name).unlink(missing_ok=True)
+        if not flutter:
+            for name in ("favicon.png", "favicon.ico", "favicon.svg", "opengraph-image.png",
+                         "opengraph-image.svg", "social.png"):
+                (staging / name).unlink(missing_ok=True)
         # Leave the deployed bundles free of references to omitted source maps.
         for javascript in staging.rglob("*.js"):
             with javascript.open("rb+") as file:

@@ -48,6 +48,7 @@ h3 { font-size: 1.28rem; letter-spacing: -.025em; }
 .flutter-feature .preview::before { content: ""; width: 100%; aspect-ratio: 8 / 5; }
 .flutter-feature .preview img { position: absolute; inset: 0; height: 100%; object-fit: cover; border-radius: 0; }
 .flutter-feature .content { align-content: center; grid-template-rows: auto auto auto; padding: clamp(21px, 4vw, 43px); }
+.flutter-feature + .flutter-feature,
 .flutter-feature + ul { margin-top: 20px; }
 @media (max-width: 620px) {
   .flutter-feature { grid-template-columns: 1fr; }
