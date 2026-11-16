@@ -89,7 +89,6 @@ These four demos use sample data so you can explore Android tools without device
 - [Color Blindness Simulator](https://bernaferrari.github.io/ColorBlindnessFlutter/)
 - [Diagonal Wipe Icon for Flutter](https://bernaferrari.github.io/diagonal-wipe-icon-flutter/)
 - [Fast Dark Theme](https://bernaferrari.github.io/fastdarktheme/)
-- [HSLuv for Dart](https://bernaferrari.github.io/hsluv-dart/)
 - [Random Color Scheme](https://bernaferrari.github.io/RandomColorScheme/)
 
 ## More browser demos
