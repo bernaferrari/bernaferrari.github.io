@@ -88,7 +88,6 @@ These four demos use sample data so you can explore Android tools without device
 - [Color Studio](https://bernaferrari.github.io/color-studio/)
 - [Color Blindness Simulator](https://bernaferrari.github.io/ColorBlindnessFlutter/) · [Source](https://github.com/bernaferrari/ColorBlindnessFlutter) · [Deployed SHA](ColorBlindnessFlutter/source-commit.txt)
 - [Diagonal Wipe Icon for Flutter](https://bernaferrari.github.io/diagonal-wipe-icon-flutter/)
-- [Fast Dark Theme](https://bernaferrari.github.io/fastdarktheme/)
 - [Random Color Scheme](https://bernaferrari.github.io/RandomColorScheme/) · [Source](https://github.com/bernaferrari/RandomColorScheme) · [Deployed SHA](RandomColorScheme/source-commit.txt)
 
 ## More browser demos
