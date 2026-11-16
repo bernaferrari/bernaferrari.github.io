@@ -1,11 +1,11 @@
 {
   "name": "Random Color Scheme",
-  "short_name": "Palettes",
+  "short_name": "RandomColorScheme",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#faf9f6",
-  "theme_color": "#faf9f6",
-  "description": "Generate Material color palettes and preview them in light and dark.",
+  "background_color": "#f6f4ee",
+  "theme_color": "#f6f4ee",
+  "description": "Explore vibrant Material 3 ColorSchemes in light and dark.",
   "prefer_related_applications": false,
   "icons": [
     {
@@ -17,6 +17,18 @@
       "src": "icons/Icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "icons/Icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/Icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

@@ -12,6 +12,7 @@ from tempfile import TemporaryDirectory
 SITE = Path(__file__).resolve().parent.parent
 DEMOS = {
     "ColorBlindnessFlutter": ("flutter_bootstrap.js", False),
+    "RandomColorScheme": ("flutter_bootstrap.js", False),
     "chroma-folio": ("flutter_bootstrap.js", False),
     "wordkeep": ("markor.js", True),
     "quietguard": ("netguard.js", True),

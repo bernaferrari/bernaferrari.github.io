@@ -89,7 +89,7 @@ These four demos use sample data so you can explore Android tools without device
 - [Color Blindness Simulator](https://bernaferrari.github.io/ColorBlindnessFlutter/) · [Source](https://github.com/bernaferrari/ColorBlindnessFlutter) · [Deployed SHA](ColorBlindnessFlutter/source-commit.txt)
 - [Diagonal Wipe Icon for Flutter](https://bernaferrari.github.io/diagonal-wipe-icon-flutter/)
 - [Fast Dark Theme](https://bernaferrari.github.io/fastdarktheme/)
-- [Random Color Scheme](https://bernaferrari.github.io/RandomColorScheme/)
+- [Random Color Scheme](https://bernaferrari.github.io/RandomColorScheme/) · [Source](https://github.com/bernaferrari/RandomColorScheme) · [Deployed SHA](RandomColorScheme/source-commit.txt)
 
 ## More browser demos
 
@@ -100,13 +100,13 @@ These four demos use sample data so you can explore Android tools without device
 <details>
 <summary>Refresh the browser demos</summary>
 
-Run the updater from this repository on macOS or Linux. Kotlin builds need a JDK and Android SDK. Set `ANDROID_HOME` to your SDK path. Flutter demos need Flutter on your PATH. Color Blindness Simulator uses Flutter 3.50.0.
+Run the updater from this repository on macOS or Linux. Kotlin builds need a JDK and Android SDK. Set `ANDROID_HOME` to your SDK path. Flutter demos need Flutter on your PATH. Color Blindness Simulator and Random Color Scheme use Flutter 3.50.0.
 
 ```sh
 python3 scripts/update-demos.py --dry-run
 python3 scripts/update-demos.py
 python3 scripts/update-demos.py wordkeep calcula
-python3 scripts/update-demos.py chroma-folio ColorBlindnessFlutter
+python3 scripts/update-demos.py chroma-folio ColorBlindnessFlutter RandomColorScheme
 ```
 
 The updater compares each app's GitHub `main` branch with the full SHA in its deployed `source-commit.txt`. It builds changed commits in temporary clones and imports each successful build with its SHA. If a build fails, the previous demo remains available and the updater exits with an error after checking the other apps.
