@@ -1,0 +1,185 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "url": "assets/AssetManifest.6f58390e.bin",
+      "hash": "6f58390e",
+      "size": 116,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/AssetManifest.bin.4c67b2bf.json",
+      "hash": "4c67b2bf",
+      "size": 158,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/FontManifest.01adcb5a.json",
+      "hash": "01adcb5a",
+      "size": 176,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/NOTICES.280748ce",
+      "hash": "280748ce",
+      "size": 1381281,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/fonts/MaterialIcons-Regular.045fdfac.otf",
+      "hash": "045fdfac",
+      "size": 1864,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/fonts/fallback/Roboto-Regular.79e85140.ttf",
+      "hash": "79e85140",
+      "size": 171676,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/packages/material_ui/shaders/ink_sparkle.2dca5ab9.frag",
+      "hash": "2dca5ab9",
+      "size": 8890,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/shaders/ink_sparkle.2dca5ab9.frag",
+      "hash": "2dca5ab9",
+      "size": 8890,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/shaders/stretch_effect.ab412f07.frag",
+      "hash": "ab412f07",
+      "size": 6737,
+      "urlHashed": true
+    },
+    {
+      "url": "canvaskit/canvaskit.js",
+      "hash": "4719b51c",
+      "size": 87031,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/canvaskit.wasm",
+      "hash": "f3c2ff16",
+      "size": 7315452,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/chromium/canvaskit.js",
+      "hash": "b836e30a",
+      "size": 86270,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/chromium/canvaskit.wasm",
+      "hash": "e269e717",
+      "size": 5463539,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/skwasm.js",
+      "hash": "373ad56a",
+      "size": 63858,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/skwasm.wasm",
+      "hash": "8cc8a3a9",
+      "size": 3612036,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/skwasm_heavy.js",
+      "hash": "0c22eeac",
+      "size": 63971,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/skwasm_heavy.wasm",
+      "hash": "08274767",
+      "size": 5232173,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/webparagraph/canvaskit.js",
+      "hash": "6a95972e",
+      "size": 76114,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/webparagraph/canvaskit.wasm",
+      "hash": "01f0337c",
+      "size": 3753480,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/wimp.js",
+      "hash": "e4bc298d",
+      "size": 59546,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/wimp.wasm",
+      "hash": "f2850c85",
+      "size": 3604253,
+      "urlHashed": false
+    },
+    {
+      "url": "favicon.png",
+      "hash": "2e078776",
+      "size": 718,
+      "urlHashed": false
+    },
+    {
+      "url": "flutter.js",
+      "hash": "d2e7708f",
+      "size": 13169,
+      "urlHashed": false
+    },
+    {
+      "url": "flutter_bootstrap.js",
+      "hash": "252f954d",
+      "size": 14687,
+      "urlHashed": false
+    },
+    {
+      "url": "icons/Icon-192.png",
+      "hash": "a6c3ba99",
+      "size": 9673,
+      "urlHashed": false
+    },
+    {
+      "url": "icons/Icon-512.png",
+      "hash": "46bbf623",
+      "size": 25657,
+      "urlHashed": false
+    },
+    {
+      "url": "index.html",
+      "hash": "3a9fa56a",
+      "size": 777,
+      "urlHashed": false
+    },
+    {
+      "url": "main.dart.5ac9af04.js",
+      "hash": "5ac9af04",
+      "size": 2669313,
+      "urlHashed": true
+    },
+    {
+      "url": "manifest.json",
+      "hash": "934d2b44",
+      "size": 532,
+      "urlHashed": false
+    },
+    {
+      "url": "version.json",
+      "hash": "23d70cb1",
+      "size": 65,
+      "urlHashed": false
+    }
+  ]
+}

@@ -1,12 +1,11 @@
 {
-  "name": "Color Blindness Color Scheme Experiments",
-  "short_name": "CBCS Experiments",
+  "name": "Color Blindness Simulator",
+  "short_name": "Color Simulator",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#0175C2",
-  "theme_color": "#0175C2",
-  "description": "A new Flutter project.",
-  "orientation": "portrait-primary",
+  "background_color": "#faf9f6",
+  "theme_color": "#faf9f6",
+  "description": "Compare Material color palettes under eight color vision simulations.",
   "prefer_related_applications": false,
   "icons": [
     {

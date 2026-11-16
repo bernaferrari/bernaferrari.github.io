@@ -1,23 +1,22 @@
 {
-    "name": "example",
-    "short_name": "example",
-    "start_url": ".",
-    "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
-    "orientation": "portrait-primary",
-    "prefer_related_applications": false,
-    "icons": [
-        {
-            "src": "icons/Icon-192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "icons/Icon-512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ]
+  "name": "Random Color Scheme",
+  "short_name": "Palettes",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#faf9f6",
+  "theme_color": "#faf9f6",
+  "description": "Generate Material color palettes and preview them in light and dark.",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/Icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/Icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
