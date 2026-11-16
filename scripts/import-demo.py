@@ -11,6 +11,7 @@ from tempfile import TemporaryDirectory
 
 SITE = Path(__file__).resolve().parent.parent
 DEMOS = {
+    "ColorBlindnessFlutter": ("flutter_bootstrap.js", False),
     "chroma-folio": ("flutter_bootstrap.js", False),
     "wordkeep": ("markor.js", True),
     "quietguard": ("netguard.js", True),
@@ -21,13 +22,17 @@ DEMOS = {
 }
 
 
-def metadata(source, slug, *, flutter):
-    app = next(app for app in json.loads((SITE / "showcase/apps.json").read_text())
-               if app["slug"] == slug)
+def metadata(source, app, *, flutter):
+    slug = app["slug"]
     title = f'{app["name"]} | Browser demo'
     description = app["description"]
     canonical = f"https://bernaferrari.github.io/{slug}/"
     image = f"https://bernaferrari.github.io/showcase/{slug}/social.jpg"
+    social_card = app.get("socialCard")
+    width, height = 1200, 630
+    if social_card:
+        image = f"{canonical}social.jpg"
+        width, height = social_card["width"], social_card["height"]
     icon = f"../showcase/{slug}"
     fields = {
         "description": description,
@@ -47,8 +52,8 @@ def metadata(source, slug, *, flutter):
         "url": canonical,
         "image": image,
         "image:type": "image/jpeg",
-        "image:width": "1200",
-        "image:height": "630",
+        "image:width": str(width),
+        "image:height": str(height),
         "image:alt": app["alt"],
     }
     tags = [f"<title>{html.escape(title)}</title>",
@@ -69,6 +74,8 @@ def metadata(source, slug, *, flutter):
         stale_metadata += r'|<base\s[^>]*>|<link\s+rel="(?:icon|apple-touch-icon)"[^>]*>'
     source = re.sub(r"(?m)^[ \t]*(?:" + stale_metadata + r")[ \t]*\n?", "", source, flags=re.S)
     source = source.replace("</head>", "    " + "\n    ".join(tags) + "\n</head>", 1)
+    if "<noscript>" in source:
+        return source
     return source.replace("<body>", '<body>\n<noscript>Enable JavaScript to run this demo.</noscript>', 1)
 
 
@@ -77,6 +84,7 @@ def main():
     parser.add_argument("demo", choices=DEMOS)
     parser.add_argument("distribution", type=Path)
     parser.add_argument("--license", type=Path)
+    parser.add_argument("--social-card", type=Path, help="JPEG preview from the source checkout")
     parser.add_argument("--source-commit", help="Full Git SHA used to build the distribution")
     args = parser.parse_args()
     if args.source_commit and not re.fullmatch(r"[0-9a-f]{40}", args.source_commit):
@@ -94,7 +102,11 @@ def main():
     source = index.read_text(encoding="utf-8")
     if flutter and f'<base href="/{args.demo}/">' not in source:
         parser.error(f"Build with --base-href /{args.demo}/ before importing.")
-    page = metadata(source, args.demo, flutter=flutter)
+    app = next(app for app in json.loads((SITE / "showcase/apps.json").read_text())
+               if app["slug"] == args.demo)
+    if "socialCard" in app and (args.social_card is None or not args.social_card.is_file()):
+        parser.error(f"Pass the source preview at {app['socialCard']['source']} with --social-card.")
+    page = metadata(source, app, flutter=flutter)
     if sqlite:
         script = f'<script src="{entry}"></script>'
         if script not in page or 'id="loading"' not in page:
@@ -131,6 +143,8 @@ def main():
                 notice.write_text("\n".join(line.rstrip() for line in lines).rstrip() + "\n",
                                   encoding="utf-8")
         (staging / "index.html").write_text(page, encoding="utf-8")
+        if args.social_card:
+            shutil.copy2(args.social_card, staging / "social.jpg")
         if sqlite:
             shutil.copy2(SITE / "showcase/isolation-worker.js", staging)
         if license_path:

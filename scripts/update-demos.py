@@ -46,11 +46,13 @@ def update(app, dry_run):
             subprocess.run(["git", "submodule", "update", "--init", "--recursive"],
                            cwd=source, check=True)
         if app.get("platform") == "flutter":
+            build_root = source / app.get("buildDirectory", ".")
             subprocess.run(
-                ["flutter", "build", "web", "--release", "--base-href", f"/{slug}/"],
-                cwd=source, check=True,
+                ["flutter", "build", "web", "--release", "--base-href", f"/{slug}/",
+                 *app.get("buildArgs", [])],
+                cwd=build_root, check=True,
             )
-            distribution = source / "build/web"
+            distribution = build_root / "build/web"
         else:
             module = app["module"]
             subprocess.run(
@@ -62,6 +64,8 @@ def update(app, dry_run):
             sys.executable, SITE / "scripts/import-demo.py", slug, distribution,
             "--source-commit", revision,
         ]
+        if "socialCard" in app:
+            command += ["--social-card", source / app["socialCard"]["source"]]
         if (source / "LICENSE").is_file():
             command += ["--license", source / "LICENSE"]
         subprocess.run(command, check=True)
