@@ -1,0 +1,3 @@
+# Preserve Flutter's content-hashed assets byte for byte.
+CashBalancer/assets/NOTICES.* -text
+CashBalancer/assets/AssetManifest.*.bin binary

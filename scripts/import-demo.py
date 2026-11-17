@@ -4,6 +4,7 @@
 import argparse
 import html
 import json
+import mimetypes
 import re
 import shutil
 from pathlib import Path
@@ -11,6 +12,7 @@ from tempfile import TemporaryDirectory
 
 SITE = Path(__file__).resolve().parent.parent
 DEMOS = {
+    "CashBalancer": ("flutter_bootstrap.js", False),
     "ColorBlindnessFlutter": ("flutter_bootstrap.js", False),
     "RandomColorScheme": ("flutter_bootstrap.js", False),
     "chroma-folio": ("flutter_bootstrap.js", False),
@@ -30,9 +32,12 @@ def metadata(source, app, *, flutter):
     canonical = f"https://bernaferrari.github.io/{slug}/"
     image = f"https://bernaferrari.github.io/showcase/{slug}/social.jpg"
     social_card = app.get("socialCard")
+    image_type = "image/jpeg"
     width, height = 1200, 630
     if social_card:
-        image = f"{canonical}social.jpg"
+        filename = social_card.get("filename", "social.jpg")
+        image = f"{canonical}{filename}"
+        image_type = mimetypes.guess_type(filename)[0]
         width, height = social_card["width"], social_card["height"]
     icon = f"../showcase/{slug}"
     fields = {
@@ -52,7 +57,7 @@ def metadata(source, app, *, flutter):
         "description": description,
         "url": canonical,
         "image": image,
-        "image:type": "image/jpeg",
+        "image:type": image_type,
         "image:width": str(width),
         "image:height": str(height),
         "image:alt": app["alt"],
@@ -85,7 +90,7 @@ def main():
     parser.add_argument("demo", choices=DEMOS)
     parser.add_argument("distribution", type=Path)
     parser.add_argument("--license", type=Path)
-    parser.add_argument("--social-card", type=Path, help="JPEG preview from the source checkout")
+    parser.add_argument("--social-card", type=Path, help="Social preview from the source checkout")
     parser.add_argument("--source-commit", help="Full Git SHA used to build the distribution")
     args = parser.parse_args()
     if args.source_commit and not re.fullmatch(r"[0-9a-f]{40}", args.source_commit):
@@ -145,7 +150,7 @@ def main():
                                   encoding="utf-8")
         (staging / "index.html").write_text(page, encoding="utf-8")
         if args.social_card:
-            shutil.copy2(args.social_card, staging / "social.jpg")
+            shutil.copy2(args.social_card, staging / app.get("socialCard", {}).get("filename", "social.jpg"))
         if sqlite:
             shutil.copy2(SITE / "showcase/isolation-worker.js", staging)
         if license_path:

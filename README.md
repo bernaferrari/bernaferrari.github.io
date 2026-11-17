@@ -74,11 +74,11 @@ These four demos use sample data so you can explore Android tools without device
     </td>
   </tr>
   <tr>
-    <td width="50%"><a href="https://bernaferrari.github.io/CashBalancer/"><img src="showcase/cash-balancer/preview.webp" width="100%" alt="Cash Balancer showing portfolio weights and target allocations"></a></td>
+    <td width="50%"><a href="https://bernaferrari.github.io/CashBalancer/"><img src="showcase/cash-balancer/preview.png" width="100%" alt="Cash Balancer showing portfolio weights and target allocations"></a></td>
     <td width="50%" valign="middle">
       <h3>Cash Balancer</h3>
       <p>Enter your balances and target percentages to see how much to move between assets.</p>
-      <p><a href="https://bernaferrari.github.io/CashBalancer/"><strong>Try Cash Balancer ↗</strong></a> · <a href="https://github.com/bernaferrari/CashBalancer">Source</a></p>
+      <p><a href="https://bernaferrari.github.io/CashBalancer/"><strong>Try Cash Balancer ↗</strong></a> · <a href="https://github.com/bernaferrari/CashBalancer">Source</a> · <a href="CashBalancer/source-commit.txt">Deployed SHA</a></p>
     </td>
   </tr>
 </table>
@@ -99,13 +99,14 @@ These four demos use sample data so you can explore Android tools without device
 <details>
 <summary>Refresh the browser demos</summary>
 
-Run the updater from this repository on macOS or Linux. Kotlin builds need a JDK and Android SDK. Set `ANDROID_HOME` to your SDK path. Flutter demos need Flutter on your PATH. Color Blindness Simulator and Random Color Scheme use Flutter 3.50.0.
+Run the updater from this repository on macOS or Linux. Kotlin builds need a JDK and Android SDK. Set `ANDROID_HOME` to your SDK path. Flutter demos need Flutter on your PATH. Cash Balancer, Color Blindness Simulator, and Random Color Scheme build with Flutter 3.50.0. Cash Balancer also uses `curl` to fetch the Drift web files for the version in its lockfile.
 
 ```sh
 python3 scripts/update-demos.py --dry-run
 python3 scripts/update-demos.py
 python3 scripts/update-demos.py wordkeep calcula
 python3 scripts/update-demos.py chroma-folio ColorBlindnessFlutter RandomColorScheme
+python3 scripts/update-demos.py CashBalancer
 ```
 
 The updater compares each app's GitHub `main` branch with the full SHA in its deployed `source-commit.txt`. It builds changed commits in temporary clones and imports each successful build with its SHA. If a build fails, the previous demo remains available and the updater exits with an error after checking the other apps.

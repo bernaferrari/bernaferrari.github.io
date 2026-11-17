@@ -5,6 +5,7 @@ import argparse
 import fcntl
 import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -17,6 +18,20 @@ SOURCE_BRANCH = "main"
 
 def git_output(*args, cwd=SITE):
     return subprocess.check_output(["git", *args], cwd=cwd, text=True).strip()
+
+
+def prepare_drift(build_root):
+    lockfile = (build_root / "pubspec.lock").read_text(encoding="utf-8")
+    drift = re.search(r'^  drift:\n(?:^    [^\n]*\n)*?^    version: "?([0-9]+\.[0-9]+\.[0-9]+)"?$', lockfile, re.M)
+    if drift is None:
+        raise RuntimeError("Could not find a stable Drift version in pubspec.lock.")
+    release = f"https://github.com/simolus3/drift/releases/download/drift-{drift[1]}"
+    for filename in ("drift_worker.js", "sqlite3.wasm"):
+        subprocess.run(
+            ["curl", "--fail", "--silent", "--show-error", "--location", "--retry", "2",
+             "--output", build_root / "web" / filename, f"{release}/{filename}"],
+            check=True,
+        )
 
 
 def update(app, dry_run):
@@ -47,6 +62,8 @@ def update(app, dry_run):
                            cwd=source, check=True)
         if app.get("platform") == "flutter":
             build_root = source / app.get("buildDirectory", ".")
+            if app.get("flutterDrift"):
+                prepare_drift(build_root)
             subprocess.run(
                 ["flutter", "build", "web", "--release", "--base-href", f"/{slug}/",
                  *app.get("buildArgs", [])],
@@ -68,7 +85,13 @@ def update(app, dry_run):
             command += ["--social-card", source / app["socialCard"]["source"]]
         if (source / "LICENSE").is_file():
             command += ["--license", source / "LICENSE"]
+        showcase_assets = {
+            SITE / destination: (source / asset).read_bytes()
+            for destination, asset in app.get("showcaseAssets", {}).items()
+        }
         subprocess.run(command, check=True)
+        for destination, data in showcase_assets.items():
+            destination.write_bytes(data)
         print(f"{slug}: imported {revision[:12]}", flush=True)
 
 

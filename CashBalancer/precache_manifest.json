@@ -1,0 +1,293 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "url": "assets/AssetManifest.31b73736.bin",
+      "hash": "31b73736",
+      "size": 904,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/AssetManifest.bin.02f4175b.json",
+      "hash": "02f4175b",
+      "size": 1210,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/FontManifest.eb0e64f2.json",
+      "hash": "eb0e64f2",
+      "size": 665,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/NOTICES.040aad16",
+      "hash": "040aad16",
+      "size": 1455257,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/assets/fonts/IBMPlexMono-Bold.ac27abd6.ttf",
+      "hash": "ac27abd6",
+      "size": 137784,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/assets/fonts/IBMPlexMono-Medium.a9b4c49b.ttf",
+      "hash": "a9b4c49b",
+      "size": 136704,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/assets/fonts/IBMPlexMono-Regular.6a3412f0.ttf",
+      "hash": "6a3412f0",
+      "size": 135580,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/assets/fonts/IBMPlexMono-SemiBold.d3c38e55.ttf",
+      "hash": "d3c38e55",
+      "size": 140216,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/assets/fonts/Inter%5Bopsz,wght%5D.29160a80.ttf",
+      "hash": "29160a80",
+      "size": 876576,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/assets/fonts/Rubik%5Bwght%5D.1b3a7437.ttf",
+      "hash": "1b3a7437",
+      "size": 359804,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/assets/fonts/ibmplexmono-OFL.37784b44.txt",
+      "hash": "37784b44",
+      "size": 4363,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/assets/fonts/inter-OFL.5b9321a4.txt",
+      "hash": "5b9321a4",
+      "size": 4377,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/assets/fonts/rubik-OFL.472cbe7c.txt",
+      "hash": "472cbe7c",
+      "size": 4384,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/fonts/MaterialIcons-Regular.cec4ccfe.otf",
+      "hash": "cec4ccfe",
+      "size": 4756,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/fonts/fallback/Roboto-Regular.79e85140.ttf",
+      "hash": "79e85140",
+      "size": 171676,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/packages/material_ui/shaders/ink_sparkle.2dca5ab9.frag",
+      "hash": "2dca5ab9",
+      "size": 8890,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/shaders/ink_sparkle.2dca5ab9.frag",
+      "hash": "2dca5ab9",
+      "size": 8890,
+      "urlHashed": true
+    },
+    {
+      "url": "assets/shaders/stretch_effect.ab412f07.frag",
+      "hash": "ab412f07",
+      "size": 6737,
+      "urlHashed": true
+    },
+    {
+      "url": "canvaskit/canvaskit.js",
+      "hash": "4719b51c",
+      "size": 87031,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/canvaskit.wasm",
+      "hash": "f3c2ff16",
+      "size": 7315452,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/chromium/canvaskit.js",
+      "hash": "b836e30a",
+      "size": 86270,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/chromium/canvaskit.wasm",
+      "hash": "e269e717",
+      "size": 5463539,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/skwasm.js",
+      "hash": "373ad56a",
+      "size": 63858,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/skwasm.wasm",
+      "hash": "8cc8a3a9",
+      "size": 3612036,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/skwasm_heavy.js",
+      "hash": "0c22eeac",
+      "size": 63971,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/skwasm_heavy.wasm",
+      "hash": "08274767",
+      "size": 5232173,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/webparagraph/canvaskit.js",
+      "hash": "6a95972e",
+      "size": 76114,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/webparagraph/canvaskit.wasm",
+      "hash": "01f0337c",
+      "size": 3753480,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/wimp.js",
+      "hash": "e4bc298d",
+      "size": 59546,
+      "urlHashed": false
+    },
+    {
+      "url": "canvaskit/wimp.wasm",
+      "hash": "f2850c85",
+      "size": 3604253,
+      "urlHashed": false
+    },
+    {
+      "url": "drift_worker.js",
+      "hash": "48c950cd",
+      "size": 363283,
+      "urlHashed": false
+    },
+    {
+      "url": "favicon-16x16.png",
+      "hash": "9725a864",
+      "size": 742,
+      "urlHashed": false
+    },
+    {
+      "url": "favicon-32x32.png",
+      "hash": "e4c346d9",
+      "size": 1920,
+      "urlHashed": false
+    },
+    {
+      "url": "favicon.ico",
+      "hash": "0a285c21",
+      "size": 6196,
+      "urlHashed": false
+    },
+    {
+      "url": "favicon.png",
+      "hash": "e4c346d9",
+      "size": 1920,
+      "urlHashed": false
+    },
+    {
+      "url": "flutter.js",
+      "hash": "d2e7708f",
+      "size": 13169,
+      "urlHashed": false
+    },
+    {
+      "url": "flutter_bootstrap.js",
+      "hash": "45c62251",
+      "size": 14688,
+      "urlHashed": false
+    },
+    {
+      "url": "icons/Icon-192.png",
+      "hash": "eea81ddd",
+      "size": 26378,
+      "urlHashed": false
+    },
+    {
+      "url": "icons/Icon-512.png",
+      "hash": "e713d9be",
+      "size": 104589,
+      "urlHashed": false
+    },
+    {
+      "url": "icons/Icon-maskable-192.png",
+      "hash": "7c1bcc95",
+      "size": 22176,
+      "urlHashed": false
+    },
+    {
+      "url": "icons/Icon-maskable-512.png",
+      "hash": "08333474",
+      "size": 90779,
+      "urlHashed": false
+    },
+    {
+      "url": "icons/apple-touch-icon.png",
+      "hash": "58c8d13f",
+      "size": 20447,
+      "urlHashed": false
+    },
+    {
+      "url": "index.html",
+      "hash": "11517ce1",
+      "size": 2346,
+      "urlHashed": false
+    },
+    {
+      "url": "main.dart.a572a29f.js",
+      "hash": "a572a29f",
+      "size": 3792257,
+      "urlHashed": true
+    },
+    {
+      "url": "manifest.json",
+      "hash": "95968616",
+      "size": 998,
+      "urlHashed": false
+    },
+    {
+      "url": "og.png",
+      "hash": "c8b5362b",
+      "size": 312170,
+      "urlHashed": false
+    },
+    {
+      "url": "sqlite3.wasm",
+      "hash": "e7451780",
+      "size": 758836,
+      "urlHashed": false
+    },
+    {
+      "url": "version.json",
+      "hash": "9794d3e9",
+      "size": 96,
+      "urlHashed": false
+    }
+  ]
+}
