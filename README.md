@@ -10,6 +10,8 @@
 
 Write a note or work through a calculation in the browser. Both apps run on Kotlin/Wasm and Compose Multiplatform.
 
+Select any app screenshot to open its browser demo.
+
 <table>
   <tr>
     <td width="50%" valign="top">
