@@ -71,7 +71,7 @@ These four demos use sample data so you can explore Android tools without device
     <td width="50%"><a href="https://bernaferrari.github.io/chroma-folio/"><img src="showcase/chroma-folio/preview.webp" width="100%" alt="Chroma Folio showing the OKLCH solid and its lightness and chroma reels"></a></td>
     <td width="50%" valign="middle">
       <h3>Chroma Folio</h3>
-      <p>Turn and slice a 3D colour solid, spin colour reels, and build a palette you can export.</p>
+      <p>Turn and slice a 3D color solid, spin color reels, and build a palette you can export.</p>
       <p><a href="https://bernaferrari.github.io/chroma-folio/"><strong>Try Chroma Folio ↗</strong></a> · <a href="https://github.com/bernaferrari/chroma-folio">Source</a> · <a href="chroma-folio/source-commit.txt">Deployed SHA</a></p>
     </td>
   </tr>
