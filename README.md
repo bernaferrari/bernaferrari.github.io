@@ -75,7 +75,7 @@ These four demos use sample data so you can explore Android tools without device
       <p><a href="https://bernaferrari.github.io/tone-desk/"><strong>Try Tone Desk ↗</strong></a> · <a href="https://github.com/bernaferrari/tone-desk">Source</a> · <a href="https://bernaferrari.github.io/tone-desk/source-commit.txt">Deployed SHA</a></p>
     </td>
     <td width="33%" valign="top">
-      <a href="https://bernaferrari.github.io/chroma-folio/"><img src="showcase/chroma-folio/preview.webp" width="100%" alt="Chroma Folio showing the OKLCH solid and its lightness and chroma reels"></a>
+      <a href="https://bernaferrari.github.io/chroma-folio/"><img src="showcase/chroma-folio/preview.webp" width="100%" alt="Chroma Folio showing the OKLCH gamut, a teal swatch, and the Deep Sea palette"></a>
       <h3>Chroma Folio</h3>
       <p>Turn and slice a 3D color solid, spin color reels, and build a palette you can export.</p>
       <p><a href="https://bernaferrari.github.io/chroma-folio/"><strong>Try Chroma Folio ↗</strong></a> · <a href="https://github.com/bernaferrari/chroma-folio">Source</a> · <a href="chroma-folio/source-commit.txt">Deployed SHA</a></p>
