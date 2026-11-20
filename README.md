@@ -68,7 +68,7 @@ These four demos use sample data so you can explore Android tools without device
 
 <table>
   <tr>
-    <td width="50%"><a href="https://bernaferrari.github.io/tone-desk/"><img src="showcase/tone-desk/preview.webp" width="100%" alt="Tone Desk's theme mixer with light and dark phone previews"></a></td>
+    <td width="50%"><a href="https://bernaferrari.github.io/tone-desk/"><img src="showcase/tone-desk/preview.jpg" width="100%" alt="Tone Desk beside two phones previewing a Material 3 theme in light and dark"></a></td>
     <td width="50%" valign="middle">
       <h3>Tone Desk</h3>
       <p>Pick a seed color, tune a Material 3 theme, and preview it on sample screens in light and dark.</p>
