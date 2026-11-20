@@ -68,6 +68,14 @@ These four demos use sample data so you can explore Android tools without device
 
 <table>
   <tr>
+    <td width="50%"><a href="https://bernaferrari.github.io/tone-desk/"><img src="showcase/tone-desk/preview.webp" width="100%" alt="Tone Desk's theme mixer with light and dark phone previews"></a></td>
+    <td width="50%" valign="middle">
+      <h3>Tone Desk</h3>
+      <p>Pick a seed color, tune a Material 3 theme, and preview it on sample screens in light and dark.</p>
+      <p><a href="https://bernaferrari.github.io/tone-desk/"><strong>Try Tone Desk ↗</strong></a> · <a href="https://github.com/bernaferrari/tone-desk">Source</a> · <a href="https://bernaferrari.github.io/tone-desk/source-commit.txt">Deployed SHA</a></p>
+    </td>
+  </tr>
+  <tr>
     <td width="50%"><a href="https://bernaferrari.github.io/chroma-folio/"><img src="showcase/chroma-folio/preview.webp" width="100%" alt="Chroma Folio showing the OKLCH solid and its lightness and chroma reels"></a></td>
     <td width="50%" valign="middle">
       <h3>Chroma Folio</h3>
@@ -108,10 +116,12 @@ python3 scripts/update-demos.py --dry-run
 python3 scripts/update-demos.py
 python3 scripts/update-demos.py wordkeep calcula
 python3 scripts/update-demos.py chroma-folio ColorBlindnessFlutter RandomColorScheme
-python3 scripts/update-demos.py CashBalancer
+python3 scripts/update-demos.py CashBalancer tone-desk
 ```
 
 The updater compares each app's GitHub `main` branch with the full SHA in its deployed `source-commit.txt`. It builds changed commits in temporary clones and imports each successful build with its SHA. If a build fails, the previous demo remains available and the updater exits with an error after checking the other apps.
+
+Tone Desk deploys from its own repository. The updater verifies its live source commit and refreshes its gallery images.
 
 Preview the changes with `python3 -m http.server 8000` and open `http://localhost:8000/`. Commit the updated demo directories and push to `main` to publish them on GitHub Pages.
 

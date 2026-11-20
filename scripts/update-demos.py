@@ -10,6 +10,8 @@ import subprocess
 import sys
 from pathlib import Path
 from tempfile import TemporaryDirectory
+from urllib.error import HTTPError
+from urllib.request import urlopen
 
 SITE = Path(__file__).resolve().parent.parent
 APPS_FILE = SITE / "showcase/apps.json"
@@ -37,11 +39,24 @@ def prepare_drift(build_root):
 def update(app, dry_run):
     slug = app["slug"]
     url = f"https://github.com/bernaferrari/{app['repo']}.git"
-    current = SITE / slug / "source-commit.txt"
+    project_pages = app.get("deployment") == "project-pages"
+    marker_dir = SITE / "showcase" / slug if project_pages else SITE / slug
+    current = marker_dir / "source-commit.txt"
     installed = current.read_text(encoding="ascii").strip() if current.is_file() else ""
     remote = git_output("ls-remote", "--exit-code", url, f"refs/heads/{SOURCE_BRANCH}")
     revision = remote.split()[0]
-    if revision == installed and (current.parent / "index.html").is_file():
+    if project_pages:
+        marker_url = f"https://bernaferrari.github.io/{slug}/source-commit.txt?ref={revision}"
+        try:
+            with urlopen(marker_url, timeout=15) as response:
+                published = response.read().decode("ascii").strip()
+        except HTTPError as error:
+            if error.code != 404:
+                raise
+            published = ""
+        if published != revision:
+            raise RuntimeError(f"Project Pages has not published {revision[:12]} yet.")
+    if revision == installed and (project_pages or (marker_dir / "index.html").is_file()):
         print(f"{slug}: up to date ({revision[:12]})", flush=True)
         return
 
@@ -57,6 +72,17 @@ def update(app, dry_run):
         )
         if git_output("rev-parse", "HEAD", cwd=source) != revision:
             raise RuntimeError("The source branch moved during clone. Run the updater again.")
+        showcase_assets = {
+            SITE / destination: (source / asset).read_bytes()
+            for destination, asset in app.get("showcaseAssets", {}).items()
+        }
+        if project_pages:
+            for destination, data in showcase_assets.items():
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_bytes(data)
+            current.write_text(revision + "\n", encoding="ascii")
+            print(f"{slug}: verified live build and refreshed showcase assets", flush=True)
+            return
         if (source / ".gitmodules").is_file():
             subprocess.run(["git", "submodule", "update", "--init", "--recursive"],
                            cwd=source, check=True)
@@ -85,10 +111,6 @@ def update(app, dry_run):
             command += ["--social-card", source / app["socialCard"]["source"]]
         if (source / "LICENSE").is_file():
             command += ["--license", source / "LICENSE"]
-        showcase_assets = {
-            SITE / destination: (source / asset).read_bytes()
-            for destination, asset in app.get("showcaseAssets", {}).items()
-        }
         subprocess.run(command, check=True)
         for destination, data in showcase_assets.items():
             destination.write_bytes(data)
