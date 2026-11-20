@@ -68,24 +68,20 @@ These four demos use sample data so you can explore Android tools without device
 
 <table>
   <tr>
-    <td width="50%"><a href="https://bernaferrari.github.io/tone-desk/"><img src="showcase/tone-desk/preview.jpg" width="100%" alt="Tone Desk beside two phones previewing a Material 3 theme in light and dark"></a></td>
-    <td width="50%" valign="middle">
+    <td width="33%" valign="top">
+      <a href="https://bernaferrari.github.io/tone-desk/"><img src="showcase/tone-desk/preview.jpg" width="100%" alt="Tone Desk beside two phones previewing a Material 3 theme in light and dark"></a>
       <h3>Tone Desk</h3>
       <p>Pick a seed color, tune a Material 3 theme, and preview it on sample screens in light and dark.</p>
       <p><a href="https://bernaferrari.github.io/tone-desk/"><strong>Try Tone Desk ↗</strong></a> · <a href="https://github.com/bernaferrari/tone-desk">Source</a> · <a href="https://bernaferrari.github.io/tone-desk/source-commit.txt">Deployed SHA</a></p>
     </td>
-  </tr>
-  <tr>
-    <td width="50%"><a href="https://bernaferrari.github.io/chroma-folio/"><img src="showcase/chroma-folio/preview.webp" width="100%" alt="Chroma Folio showing the OKLCH solid and its lightness and chroma reels"></a></td>
-    <td width="50%" valign="middle">
+    <td width="33%" valign="top">
+      <a href="https://bernaferrari.github.io/chroma-folio/"><img src="showcase/chroma-folio/preview.webp" width="100%" alt="Chroma Folio showing the OKLCH solid and its lightness and chroma reels"></a>
       <h3>Chroma Folio</h3>
       <p>Turn and slice a 3D color solid, spin color reels, and build a palette you can export.</p>
       <p><a href="https://bernaferrari.github.io/chroma-folio/"><strong>Try Chroma Folio ↗</strong></a> · <a href="https://github.com/bernaferrari/chroma-folio">Source</a> · <a href="chroma-folio/source-commit.txt">Deployed SHA</a></p>
     </td>
-  </tr>
-  <tr>
-    <td width="50%"><a href="https://bernaferrari.github.io/CashBalancer/"><img src="showcase/cash-balancer/preview.png" width="100%" alt="Cash Balancer showing portfolio weights and target allocations"></a></td>
-    <td width="50%" valign="middle">
+    <td width="33%" valign="top">
+      <a href="https://bernaferrari.github.io/CashBalancer/"><img src="showcase/cash-balancer/preview.png" width="100%" alt="Cash Balancer showing portfolio weights and target allocations"></a>
       <h3>Cash Balancer</h3>
       <p>Enter your balances and target percentages to see how much to move between assets.</p>
       <p><a href="https://bernaferrari.github.io/CashBalancer/"><strong>Try Cash Balancer ↗</strong></a> · <a href="https://github.com/bernaferrari/CashBalancer">Source</a> · <a href="CashBalancer/source-commit.txt">Deployed SHA</a></p>

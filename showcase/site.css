@@ -44,14 +44,4 @@ h3 { font-size: 1.28rem; letter-spacing: -.025em; }
 .footer { border-top: 1px solid var(--line); margin-top: 52px; padding-block: 23px 34px; color: var(--muted); }
 @media (max-width: 850px) { .grid, .archive > ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 530px) { .shell { width: calc(100% - 32px); } .grid, .archive > ul { grid-template-columns: 1fr; } }
-.flutter-feature { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.flutter-feature .preview { position: relative; aspect-ratio: auto; min-height: 260px; padding: 0; }
-.flutter-feature .preview::before { content: ""; width: 100%; aspect-ratio: 8 / 5; }
-.flutter-feature .preview img { position: absolute; inset: 0; height: 100%; object-fit: cover; border-radius: 0; }
-.flutter-feature .content { align-content: center; grid-template-rows: auto auto auto; padding: clamp(21px, 4vw, 43px); }
-.flutter-feature + .flutter-feature,
-.flutter-feature + ul { margin-top: 20px; }
-@media (max-width: 620px) {
-  .flutter-feature { grid-template-columns: 1fr; }
-  .flutter-feature .preview { aspect-ratio: 8 / 5; min-height: 0; }
-}
+.grid + ul { margin-top: 20px; }
